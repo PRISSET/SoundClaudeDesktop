@@ -1,39 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-  </head>
-
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
-
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
-
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundCloud Desktop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        
+        .loader-container {
+            text-align: center;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 24px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .logo svg {
+            width: 100%;
+            height: 100%;
+            fill: #f50;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 24px auto 0;
+            border: 3px solid rgba(255, 85, 0, 0.2);
+            border-top-color: #f50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.052-.1-.084-.1zm-.899 1.02c-.051 0-.09.037-.099.085L0 15.479l.177 2.149c.009.048.048.085.099.085.05 0 .09-.037.099-.085l.255-2.149-.255-2.149c-.009-.048-.049-.085-.099-.085zm1.83-1.065c-.06 0-.111.05-.111.113l-.21 2.186.21 2.186c0 .063.051.113.111.113.06 0 .111-.05.111-.113l.239-2.186-.239-2.186c0-.063-.051-.113-.111-.113zm.899-.427c-.074 0-.126.058-.126.127l-.193 2.613.193 2.613c0 .069.052.127.126.127.073 0 .126-.058.126-.127l.22-2.613-.22-2.613c0-.069-.053-.127-.126-.127zm.899-.214c-.083 0-.141.063-.141.141l-.177 2.827.177 2.827c0 .078.058.141.141.141.082 0 .141-.063.141-.141l.2-2.827-.2-2.827c0-.078-.059-.141-.141-.141zm.899-.107c-.093 0-.156.069-.156.156l-.161 2.934.161 2.934c0 .087.063.156.156.156.092 0 .156-.069.156-.156l.184-2.934-.184-2.934c0-.087-.064-.156-.156-.156zm.899-.107c-.102 0-.17.074-.17.17l-.145 3.041.145 3.041c0 .096.068.17.17.17.101 0 .17-.074.17-.17l.167-3.041-.167-3.041c0-.096-.069-.17-.17-.17zm.899-.214c-.111 0-.185.08-.185.185l-.129 3.255.129 3.255c0 .105.074.185.185.185.11 0 .185-.08.185-.185l.148-3.255-.148-3.255c0-.105-.075-.185-.185-.185zm.899.321c-.121 0-.2.085-.2.199l-.113 2.934.113 2.934c0 .114.079.199.2.199.12 0 .199-.085.199-.199l.129-2.934-.129-2.934c0-.114-.079-.199-.199-.199zm.899-.535c-.13 0-.214.091-.214.214l-.097 3.469.097 3.469c0 .123.084.214.214.214.129 0 .214-.091.214-.214l.111-3.469-.111-3.469c0-.123-.085-.214-.214-.214zm.899-.321c-.14 0-.229.096-.229.228l-.081 3.79.081 3.79c0 .132.089.228.229.228.139 0 .228-.096.228-.228l.093-3.79-.093-3.79c0-.132-.089-.228-.228-.228zm1.798.75c-.148 0-.243.101-.243.243l-.065 3.04.065 3.04c0 .142.095.243.243.243.147 0 .242-.101.242-.243l.074-3.04-.074-3.04c0-.142-.095-.243-.242-.243zm.899-.964c-.158 0-.258.107-.258.257l-.049 4.004.049 4.004c0 .15.1.257.258.257.157 0 .257-.107.257-.257l.056-4.004-.056-4.004c0-.15-.1-.257-.257-.257zm.899-.107c-.167 0-.272.112-.272.272l-.033 4.111.033 4.111c0 .16.105.272.272.272.166 0 .271-.112.271-.272l.038-4.111-.038-4.111c0-.16-.105-.272-.271-.272zm.899.321c-.177 0-.287.118-.287.286l-.017 3.79.017 3.79c0 .168.11.286.287.286.176 0 .286-.118.286-.286l.02-3.79-.02-3.79c0-.168-.11-.286-.286-.286zm3.596-1.499c-.297 0-.584.037-.859.107-.177-2.005-1.879-3.576-3.958-3.576-.535 0-1.048.107-1.517.286-.176.069-.223.139-.223.277v7.456c0 .146.111.271.257.286h6.3c1.619 0 2.932-1.313 2.932-2.932s-1.313-2.904-2.932-2.904z"/>
+            </svg>
+        </div>
+        <h1>SoundCloud Desktop</h1>
+        <p>Loading your music...</p>
+        <div class="spinner"></div>
+    </div>
+</body>
 </html>

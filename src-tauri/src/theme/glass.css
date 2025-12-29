@@ -1,0 +1,555 @@
+/*
+ * SoundCloud Desktop - Glass Theme
+ * Прозрачность + читаемость
+ */
+
+:root {
+    --glass: rgba(0, 0, 0, 0.6);
+    --glass-light: rgba(0, 0, 0, 0.4);
+    --glass-heavy: rgba(0, 0, 0, 0.8);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #ff5500;
+    --text: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== BACKGROUND ===== */
+html {
+    background: transparent !important;
+}
+
+body {
+    background: url('BG_PLACEHOLDER') center center / cover no-repeat fixed !important;
+}
+
+/* ===== MAKE EVERYTHING TRANSPARENT ===== */
+.l-main,
+.l-content,
+.l-container,
+.l-fluid-fixed,
+.l-main-content,
+.l-listen-wrapper,
+.l-about-main,
+.l-body,
+.l-nav,
+.stream,
+.stream__list,
+.userMain,
+.userStream,
+.streamContext,
+.lazyLoadingList,
+div.l-fixed-top-spacer,
+.g-dark,
+.sc-background-white,
+.sc-background-light {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ===== HEADER ===== */
+.header,
+.l-top-full-width,
+.headerScene,
+.g-z-index-header {
+    background: var(--glass) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.headerSearch__input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    color: var(--text) !important;
+}
+
+.headerSearch__input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.headerSearch__input:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: var(--accent) !important;
+}
+
+/* ===== SIDEBAR / NEXT UP ===== */
+.l-sidebar-right,
+.sidebarRight,
+.queue,
+.queuePanel,
+.queueFallback {
+    background: var(--glass) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-left: 1px solid var(--border) !important;
+}
+
+.queue__header,
+.queuePanel__header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 16px !important;
+}
+
+.queue__header h3,
+.queue__title,
+.queuePanel__title {
+    color: var(--text) !important;
+    font-weight: 600 !important;
+}
+
+/* Close button */
+.queue__closeButton,
+.queuePanel__closeButton,
+.queue__hide {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    opacity: 0.8 !important;
+}
+
+.queue__closeButton:hover,
+.queuePanel__closeButton:hover,
+.queue__hide:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+}
+
+/* Queue items */
+.queueItemView,
+.queue__item {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 8px 16px !important;
+}
+
+.queueItemView:hover,
+.queue__item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.queueItemView__title {
+    color: var(--text) !important;
+}
+
+.queueItemView__username {
+    color: var(--text-dim) !important;
+}
+
+/* Sidebar modules */
+.sidebarModule {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    margin: 12px !important;
+    overflow: hidden !important;
+}
+
+.sidebarModule__title {
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+/* ===== PLAYER BAR ===== */
+.playControls {
+    background: var(--glass-heavy) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+.playControls__bg {
+    display: none !important;
+}
+
+.playControls__inner,
+.playControls__elements {
+    background: transparent !important;
+}
+
+/* Control buttons */
+.playControl,
+.skipControl,
+.shuffleControl,
+.repeatControl {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text) !important;
+    opacity: 0.9 !important;
+}
+
+.playControl:hover,
+.skipControl:hover {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+}
+
+.shuffleControl.m-shuffling,
+.repeatControl.m-repeating,
+.repeatControl.m-repeatingOne {
+    color: var(--accent) !important;
+}
+
+/* Timeline - убираем серую заливку */
+.playbackTimeline,
+.playbackTimeline__mainWrapper,
+.playControls__timeline,
+.playControls__timeline *:not(.playbackTimeline__progressBackground):not(.playbackTimeline__progressHandle) {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.playbackTimeline__progressWrapper {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.playbackTimeline__progressBackground {
+    background: var(--accent) !important;
+}
+
+/* Кружок на timeline */
+.playbackTimeline__progressHandle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+    margin-top: -3px !important;
+}
+
+.playbackTimeline__timePassed,
+.playbackTimeline__duration {
+    color: var(--text-dim) !important;
+    font-size: 11px !important;
+    background: transparent !important;
+}
+
+/* Volume - убираем ВСЮ серую заливку */
+.volume,
+.volume *,
+.playControls__volume,
+.playControls__volume *,
+.volume__button,
+.volume__button *,
+button.volume__button,
+.iconButton,
+.playControls .iconButton,
+.playControls__control {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Volume slider popup - только это с фоном */
+.volume__sliderWrapper {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 12px !important;
+}
+
+.volume__sliderBackground {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.volume__sliderProgress {
+    background: var(--accent) !important;
+}
+
+.volume__sliderHandle {
+    background: #ffffff !important;
+}
+
+/* Now playing */
+.playbackSoundBadge {
+    background: transparent !important;
+}
+
+.playbackSoundBadge__avatar {
+    border-radius: 6px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.playbackSoundBadge__titleLink {
+    color: var(--text) !important;
+    font-weight: 500 !important;
+}
+
+.playbackSoundBadge__titleLink:hover {
+    color: var(--accent) !important;
+}
+
+.playbackSoundBadge__lightLink {
+    color: var(--text-dim) !important;
+}
+
+.playbackSoundBadge__lightLink:hover {
+    color: var(--text) !important;
+}
+
+.playbackSoundBadge__actions .sc-button {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-dim) !important;
+}
+
+.playbackSoundBadge__actions .sc-button:hover {
+    color: var(--text) !important;
+}
+
+.playbackSoundBadge__actions .sc-button-selected {
+    color: var(--accent) !important;
+}
+
+/* Queue button */
+.playControls__queue,
+.queueControl {
+    background: transparent !important;
+    color: var(--text-dim) !important;
+}
+
+.playControls__queue:hover,
+.queueControl:hover {
+    color: var(--text) !important;
+}
+
+.playControls__queue.m-visible,
+.queueControl.m-visible {
+    color: var(--accent) !important;
+}
+
+/* ===== SOUND CARDS ===== */
+.sound,
+.soundList__item,
+.playableTile,
+.userStreamItem {
+    background: transparent !important;
+}
+
+.sound:hover,
+.soundList__item:hover,
+.playableTile:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 8px !important;
+}
+
+/* Cover art */
+.sound__coverArt,
+.sc-artwork,
+.playableTile__artwork,
+.image__full {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Titles */
+.soundTitle__title,
+.playableTile__heading,
+.soundBadge__titleLink {
+    color: var(--text) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.soundTitle__title:hover,
+.playableTile__heading:hover,
+.soundBadge__titleLink:hover {
+    color: var(--accent) !important;
+}
+
+.soundTitle__username,
+.playableTile__description,
+.soundBadge__usernameLink {
+    color: var(--text-dim) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Stats */
+.sc-ministats,
+.soundStats {
+    color: var(--text-muted) !important;
+}
+
+/* ===== BUTTONS ===== */
+.sc-button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    color: var(--text) !important;
+    transition: all 0.2s ease !important;
+}
+
+.sc-button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Play button */
+.playButton,
+.sc-button-play {
+    background: var(--accent) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(255, 85, 0, 0.4) !important;
+}
+
+.playButton:hover,
+.sc-button-play:hover {
+    background: #ff7733 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Action buttons */
+.sc-button-like,
+.sc-button-repost,
+.sc-button-share,
+.sc-button-more {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+}
+
+.sc-button-like:hover,
+.sc-button-repost:hover,
+.sc-button-share:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sc-button-like.sc-button-selected {
+    color: var(--accent) !important;
+}
+
+/* Follow */
+.sc-button-follow {
+    background: transparent !important;
+    border: 1px solid var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+.sc-button-follow:hover {
+    background: var(--accent) !important;
+    color: var(--text) !important;
+}
+
+/* ===== TABS ===== */
+.tabs__tab,
+.g-tabs-link {
+    color: var(--text-dim) !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.tabs__tab:hover,
+.g-tabs-link:hover {
+    color: var(--text) !important;
+}
+
+.tabs__tab.selected,
+.g-tabs-link.active {
+    color: var(--text) !important;
+    border-bottom-color: var(--accent) !important;
+}
+
+/* ===== MODALS ===== */
+.modal,
+.dialog,
+.dropdownContent,
+.moreActions,
+.menu,
+.popover,
+.hovercard {
+    background: var(--glass-heavy) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dropdownContent__item,
+.moreActions__item,
+.menu__item {
+    color: var(--text) !important;
+}
+
+.dropdownContent__item:hover,
+.moreActions__item:hover,
+.menu__item:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===== HIDE ADS ===== */
+.banner,
+.announcement,
+.upsellBanner,
+.promoBanner,
+.webDisplayBanner {
+    display: none !important;
+}
+
+/* ===== WAVEFORM ===== */
+.waveform__layer {
+    opacity: 0.7 !important;
+}
+
+/* ===== PROFILE ===== */
+.profileHeaderBackground {
+    opacity: 0.4 !important;
+}
+
+.userInfoBar {
+    background: var(--glass) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* ===== INPUTS ===== */
+input,
+textarea {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--text) !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent) !important;
+    outline: none !important;
+}
+
+/* ===== COMMENTS ===== */
+.commentItem__body {
+    color: var(--text) !important;
+}
+
+.commentItem__username {
+    color: var(--accent) !important;
+}
